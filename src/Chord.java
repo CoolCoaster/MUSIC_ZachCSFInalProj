@@ -205,7 +205,7 @@ public class Chord {
 
     public static int convertScaleStringToInt(String scaleString) {
         for (int i = 0; i < 13; i++) {
-            if (listOfScaleDegrees[i] == scaleString) {
+            if (listOfScaleDegrees[i].equals(scaleString)) {
                 return i;
             }
         }
@@ -214,5 +214,15 @@ public class Chord {
 
     public String toString() {
         return notes[0].toString() + "/" + notes[1].toString() + "/" + notes[2].toString() + "/" + notes[3].toString();
+    }
+
+    public static int numberOfNotes(String str) {
+        int tot = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.toUpperCase().charAt(i) >= 'A'|| str.toUpperCase().charAt(i) <= 'G') {
+                tot++;
+            }
+        }
+        return tot;
     }
 }
